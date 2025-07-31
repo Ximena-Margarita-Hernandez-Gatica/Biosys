@@ -3,23 +3,12 @@ import flet as ft
 #import airtable as at#
 #Función principal
 def main (page: ft.Page):
-    """
-    def ingresar(e: ft.ControlEvent):
-        page.clean()
-        pr.main (page)
-    """
 
     #*Configuración de la pagina*
     page.theme_mode = "light" #Si queremos el modo oscuro escribiriamos "dark" en vez de "light"
     page.horizontal_alignment = "center" #Centrar(tambien se puede poner vertical)
     page.title = "Inicio de sesión" #Poner titulo a la pagina (se veria en lo que seria la pestaña de la pagina)
     
-    """
-    page.fonts = {
-        "Kanit": "https://raw.githubusercontent.com/google/fonts/master/ofl/kanit/Kanit-Bold.ttf",
-    }
-    """
-
     #*Componentes de la pagina*
     #logo = ft.Icon ("person", size=60, color=ft.Colors.RED_100) #Poner el logo,configurar su tamaño y color (el icono se busca en "Flet Icons browser" y se escribe el nombre del icono [solo el nombre qu e va despues del icon.])
     #txt_bienvenido = ft.Text ("Bienvenid@", size=40,color=ft.Colors.RED_100) #Cartelito de bienvenida
@@ -30,8 +19,8 @@ def main (page: ft.Page):
         color = "black",
         bgcolor= ft.Colors.RED_100,
     )
-    txt_usuario = ft.TextField (label="Username/Correo", width=250) #Poner el campo de texto en donde el usuario agregara su nombre/correo, ademas se configura ancho y largo de ese campo de texto
-    txt_contra = ft.TextField (label="Contraseña", password=True,can_reveal_password=True,width=250) #Poner el campo de texto en donde el usuario agregara su contraseña, ademas se configura ancho y largo de ese campo de texto y ocultar la contraseña (can_reveal_password=True para el ojito que permite ocultar y ver la pagina)
+    txt_usuario = ft.TextField (label="Username/Correo") #Poner el campo de texto en donde el usuario agregara su nombre/correo, ademas se configura ancho y largo de ese campo de texto
+    txt_contra = ft.TextField (label="Contraseña", password=True,can_reveal_password=True) #Poner el campo de texto en donde el usuario agregara su contraseña, ademas se configura ancho y largo de ese campo de texto y ocultar la contraseña (can_reveal_password=True para el ojito que permite ocultar y ver la pagina)
     btn_login = ft.FilledButton ( #Si la linea es muy larga se puede ordenar como aqui
         "Iniciar sesión", 
         width=300,
@@ -48,4 +37,5 @@ def main (page: ft.Page):
 
 
 #Inicializar la aplicación
-ft.app (target = main, view= ft.AppView.WEB_BROWSER)
+if __name__ == "__main__":
+    ft.app (target = main, view= ft.AppView.WEB_BROWSER)

@@ -1,9 +1,5 @@
 import flet as ft
-"""
-import Interfaz_RegiDatos as IRD
-import ConsultasUsu as CS
-import alta_usuario as AU
-"""
+
 def main (page: ft.Page):
     #Configuración de la pagina
     page.theme_mode = "light" 
@@ -24,4 +20,4 @@ def main (page: ft.Page):
     page.update() 
 
 if __name__ == "__main__":
-    ft.app(target=main)
+    ft.app(target=main,view= ft.AppView.WEB_BROWSER)
