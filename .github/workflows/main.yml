@@ -1,6 +1,6 @@
 name: Web Build + Deployment to GitHub Pages
 
-on:
+on: 
   # Runs on push to any of the below branches
   push:
     branches:
