@@ -1,3 +1,4 @@
+#Registrar Usuarios
 import flet as ft
 import airtable as at
 import principal as pl
@@ -60,15 +61,16 @@ def main(page: ft.Page):
     page.title = "Altas"
     page.theme_mode = "light"
     page.horizontal_alignment = "center"
+    page.vertical_alignment = "center"
     page.window.width = 800
     page.window.height = 600
     page.fonts = {
         "Kanit": "https://raw.githubusercontent.com/google/fonts/master/ofl/kanit/Kanit-Bold.ttf",
     }
     page.appbar = ft.AppBar (
-        title= ft.Text ("Nuevo Usuario",font_family="Kanit",size=30),
+        title= ft.Text ("Nuevo Usuario",font_family="Kanit",size=40),
         center_title=True,
-        leading= ft.Icon ("person_add"),
+        leading= ft.Icon ("person_add",size=30),
         color = "black",
         bgcolor= ft.Colors.RED_100,
     )
@@ -92,7 +94,7 @@ def main(page: ft.Page):
     )
     fila = ft.Row(controls=[btn_guardar,btn_cancelar])
 
-
+    #Agregar componentes y actualizar la pagina
     page.add (txt_clave,txt_contra,txt_contra2,txt_nombre,chk_admin,fila,btn_regresar)
     page.update()
 

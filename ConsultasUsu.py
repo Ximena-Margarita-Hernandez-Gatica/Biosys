@@ -1,3 +1,4 @@
+#Consultar la Tabla de Usuarios
 import flet as ft
 import principal as pl
 import airtable as at
@@ -7,24 +8,25 @@ def main (page: ft.Page):
     page.title = "Consultas de Usuarios"
     page.theme_mode = "light"
     page.horizontal_alignment = "center"
-    page.window.width = 1000 
-    page.window.height = 800
+    page.vertical_alignment = "center"
+    #page.window.width = 1000 
+    #page.window.height = 800
     page.fonts = {
         "Kanit": "https://raw.githubusercontent.com/google/fonts/master/ofl/kanit/Kanit-Bold.ttf",
     }
     page.appbar = ft.AppBar( 
-        title= ft.Text ("Listado de Usuarios",font_family="Kanit",size=30),
+        title= ft.Text ("Listado de Usuarios",font_family="Kanit",size=40),
         center_title= True,
-        leading= ft.Icon ("cloud"),
+        leading= ft.Icon ("cloud",size=30),
         bgcolor= ft.Colors.RED_100,
-        color= "black",
+        color= "black"
     )
     #Tabla de usuario
     encabezado = [
         ft.DataColumn(ft.Text("Clave")),
         ft.DataColumn(ft.Text("Contraseña")),
         ft.DataColumn(ft.Text("Nombre Completo")),
-        ft.DataColumn(ft.Text("¿Es administrador?")),
+        ft.DataColumn(ft.Text("¿Es administrador?"))
     ]
     filas = []
     datos = at.Usuario.all()
@@ -49,43 +51,12 @@ def main (page: ft.Page):
         icon_color = "black",
         on_click = regresar
     )
-    #Agregar componentes y actualizar la pagina
+    #Agregar componentes y actualizar la pagina 
     page.add(tbl_usuarios,btn_regresar)
+ 
     page.update()
     
 if __name__ == "__main__":
     ft.app(target=main,view= ft.AppView.WEB_BROWSER)
 
 
-"""
-#CONECTAR CON SQL (DB LOCAL)
-from simpledt import SQLDataTable #Solo traer el codigo el estilo de tabla de tipo SQL (BD relacional)
-
-def main (page: ft.Page):
-    #Configuración de la pagina
-    page.title = "Consultas de Usuarios"
-    page.theme_mode = "light"
-    page.horizontal_alignment = "center"
-    page.window.width = 1000 
-    page.window.height = 800
-    page.fonts = {
-        "Kanit": "https://raw.githubusercontent.com/google/fonts/master/ofl/kanit/Kanit-Bold.ttf",
-    }
-    page.appbar = ft.AppBar( #Poner un titulo con un fondo
-        title= ft.Text ("Listado de Usuarios",font_family="Kanit"),
-        center_title= True,
-        leading= ft.Icon ("people"),
-        bgcolor= ft.Colors.RED_100,
-        color= "black",
-    )
-    #Creacion de la tabla 
-    base_datos = SQLDataTable ("sqlite","Base_Datos.db","usuario") #Traer todos los datos de la tabla que indicamos
-    tbl_usuarios = base_datos.datatable
-
-    #Agregar componentes y actualizar la pagina
-    page.add(tbl_usuarios)
-    page.update()
-
-
-ft.app(target=main)
-"""
